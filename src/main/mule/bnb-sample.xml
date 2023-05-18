@@ -121,7 +121,9 @@ output application/json
     </flow>
     <flow name="get:\Entities:bnb-sample-config">
         <logger level="INFO" doc:name="log started" doc:id="a4b1e228-7638-4375-96a0-ad962371cf5e" message="log started"/>
-		<flow-ref doc:name="Flow Reference" doc:id="c39f99d7-df93-49e1-8f89-afe246961ec2" name="sample-papiFlow" />
+		<async doc:name="Async" doc:id="346d5839-9c2a-4bd6-bf6a-6b375b300f1b" >
+			<flow-ref doc:name="sample-papiFlow" doc:id="c39f99d7-df93-49e1-8f89-afe246961ec2" name="sample-papiFlow" />
+		</async>
 		<ee:transform>
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
